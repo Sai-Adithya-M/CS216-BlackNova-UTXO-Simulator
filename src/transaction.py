@@ -1,0 +1,32 @@
+class Transaction:
+    def __init__(self, tx_id: str, inputs: list, outputs: list):
+        """
+        inputs: list of dicts:
+            {
+                "prev_tx": str,
+                "index": int,
+                "owner": str
+            }
+
+        outputs: list of dicts:
+            {
+                "amount": float,
+                "address": str
+            }
+        """
+        self.tx_id = tx_id
+        self.inputs = inputs
+        self.outputs = outputs
+
+
+    def get_input_sum(self, utxo_manager):
+        total = 0.0
+        for inp in self.inputs:
+            key = (inp["prev_tx"], inp["index"])
+            amount, _ = utxo_manager.utxo_set[key]
+            total += amount
+        return total
+    
+
+    def get_output_sum(self):
+        return sum(out["amount"] for out in self.outputs)
