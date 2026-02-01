@@ -20,7 +20,7 @@ class UTXOManager :
         key = (tx_id, index)
 
         if key not in self.utxo_set:
-            raise ValueError(f"Double spend detected! UTXO {tx_id}:{index} not found.")
+            raise ValueError(f"Error detected! UTXO {tx_id}:{index} not found.")
 
         spent_utxo = self.utxo_set.pop(key)
 
