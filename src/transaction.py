@@ -23,8 +23,12 @@ class Transaction:
         total = 0.0
         for inp in self.inputs:
             key = (inp["prev_tx"], inp["index"])
-            amount, _ = utxo_manager.utxo_set[key]
-            total += amount
+            if key in utxo_manager.utxo_set:
+                utxo_data = utxo_manager.utxo_set[key]
+                # Access the 'amount' key specifically
+                total += utxo_data["amount"]
+            else:
+                raise ValueError(f"Input UTXO {key} not found in UTXO set!")
         return total
     
 

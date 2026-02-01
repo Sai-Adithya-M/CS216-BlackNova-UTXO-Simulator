@@ -1,6 +1,5 @@
 class UTXOManager :
-
-    def _init__(self) :
+    def __init__(self) :
         self . utxo_set = {}
 
     def add_utxo ( self , tx_id : str , index : int , amount : float , owner : #o(1)
