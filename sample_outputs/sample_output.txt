@@ -1,0 +1,144 @@
+=== Bitcoin Transaction Simulator ===
+Initial UTXOs ( Genesis Block ) :
+Alice : 50  BTC
+Bob : 30  BTC
+Charlie : 20  BTC
+David : 10  BTC
+Eve : 5  BTC
+
+
+ Main menu :
+
+1 Create TX
+2 View UTXO
+3 View Mempool
+4 Mine
+5 Tests
+6 Exit
+
+Enter choice: 1
+Enter Sender: Alice
+Available balance:  50  BTC
+Enter Recipient: Bob
+Enter Amount: 10
+
+Creating transaction...
+Transaction accepted Fee: 0.001 BTC
+TX ID: tx_Alice_Bob_10.0_1770142047
+Transaction added to mempool
+Mempool size: 1 transactions
+
+Enter choice: 3
+MEMPOOL TRANSACTIONS: 
+TX ID: tx_Alice_Bob_10.0_1770142047, Inputs: [{'prev_tx': 'genesis', 'index': 0, 'owner': 'Alice'}], Outputs: [{'amount': 10.0, 'address': 'Bob'}, {'amount': 39.999, 'address': 'Alice'}], Fee: 0.001 BTC
+
+Enter choice: 2
+UTXO SET: 
+TX: genesis, Index: 0, Amount: 50 BTC, Owner: Alice
+TX: genesis, Index: 1, Amount: 30 BTC, Owner: Bob
+TX: genesis, Index: 2, Amount: 20 BTC, Owner: Charlie
+TX: genesis, Index: 3, Amount: 10 BTC, Owner: David
+TX: genesis, Index: 4, Amount: 5 BTC, Owner: Eve
+
+Enter choice: 4
+Miner name: Vishnu
+Mined Successfully!
+Miner Vishnu receives 0.001 BTC
+1 transactions removed from mempool
+
+Enter choice: 2
+UTXO SET: 
+TX: genesis, Index: 1, Amount: 30 BTC, Owner: Bob
+TX: genesis, Index: 2, Amount: 20 BTC, Owner: Charlie
+TX: genesis, Index: 3, Amount: 10 BTC, Owner: David
+TX: genesis, Index: 4, Amount: 5 BTC, Owner: Eve
+TX: tx_Alice_Bob_10.0_1770142047, Index: 0, Amount: 10.0 BTC, Owner: Bob
+TX: tx_Alice_Bob_10.0_1770142047, Index: 1, Amount: 39.999 BTC, Owner: Alice
+TX: coinbase_1770142087, Index: 0, Amount: 0.001 BTC, Owner: Vishnu
+
+Enter choice: 1
+Enter Sender: Bob
+Available balance:  40.0  BTC
+Enter Recipient: Eve
+Enter Amount: 60
+
+Creating transaction...
+Insufficient funds
+Transaction creation failed.
+
+Enter choice: 4
+Miner name: Ayush
+No transactions to mine
+
+Enter choice: 3
+MEMPOOL TRANSACTIONS: 
+Mempool is empty
+
+Enter choice: 1
+Enter Sender: Alice
+Available balance:  39.999  BTC
+Enter Recipient: Eve
+Enter Amount: 20
+
+Creating transaction...
+Transaction accepted Fee: 0.001 BTC
+TX ID: tx_Alice_Eve_20.0_1770142146
+Transaction added to mempool
+Mempool size: 1 transactions
+
+Enter choice: 2
+UTXO SET: 
+TX: genesis, Index: 1, Amount: 30 BTC, Owner: Bob
+TX: genesis, Index: 2, Amount: 20 BTC, Owner: Charlie
+TX: genesis, Index: 3, Amount: 10 BTC, Owner: David
+TX: genesis, Index: 4, Amount: 5 BTC, Owner: Eve
+TX: tx_Alice_Bob_10.0_1770142047, Index: 0, Amount: 10.0 BTC, Owner: Bob
+TX: tx_Alice_Bob_10.0_1770142047, Index: 1, Amount: 39.999 BTC, Owner: Alice
+TX: coinbase_1770142087, Index: 0, Amount: 0.001 BTC, Owner: Vishnu
+
+Enter choice: 1
+Enter Sender: Alice
+Available balance:  39.999  BTC
+Enter Recipient: Bob  
+Enter Amount: 5
+
+Creating transaction...
+Transaction failed: UTXO ('tx_Alice_Bob_10.0_1770142047', 1) already spent in mempool
+
+Enter choice: 1
+Enter Sender: Bob
+Available balance:  40.0  BTC
+Enter Recipient: Charlie
+Enter Amount: 5
+
+Creating transaction...
+Transaction accepted Fee: 0.001 BTC
+TX ID: tx_Bob_Charlie_5.0_1770142220
+Transaction added to mempool
+Mempool size: 2 transactions
+
+Enter choice: 3
+MEMPOOL TRANSACTIONS: 
+TX ID: tx_Alice_Eve_20.0_1770142146, Inputs: [{'prev_tx': 'tx_Alice_Bob_10.0_1770142047', 'index': 1, 'owner': 'Alice'}], Outputs: [{'amount': 20.0, 'address': 'Eve'}, {'amount': 19.998, 'address': 'Alice'}], Fee: 0.001 BTC
+TX ID: tx_Bob_Charlie_5.0_1770142220, Inputs: [{'prev_tx': 'genesis', 'index': 1, 'owner': 'Bob'}], Outputs: [{'amount': 5.0, 'address': 'Charlie'}, {'amount': 24.999, 'address': 'Bob'}], Fee: 0.001 BTC
+
+Enter choice: 4
+Miner name: Vishnu
+Mined Successfully!
+Miner Vishnu receives 0.002 BTC
+2 transactions removed from mempool
+
+Enter choice: 2
+UTXO SET: 
+TX: genesis, Index: 2, Amount: 20 BTC, Owner: Charlie
+TX: genesis, Index: 3, Amount: 10 BTC, Owner: David
+TX: genesis, Index: 4, Amount: 5 BTC, Owner: Eve
+TX: tx_Alice_Bob_10.0_1770142047, Index: 0, Amount: 10.0 BTC, Owner: Bob
+TX: coinbase_1770142087, Index: 0, Amount: 0.001 BTC, Owner: Vishnu
+TX: tx_Alice_Eve_20.0_1770142146, Index: 0, Amount: 20.0 BTC, Owner: Eve
+TX: tx_Alice_Eve_20.0_1770142146, Index: 1, Amount: 19.998 BTC, Owner: Alice
+TX: tx_Bob_Charlie_5.0_1770142220, Index: 0, Amount: 5.0 BTC, Owner: Charlie
+TX: tx_Bob_Charlie_5.0_1770142220, Index: 1, Amount: 24.999 BTC, Owner: Bob
+TX: coinbase_1770142227, Index: 0, Amount: 0.002 BTC, Owner: Vishnu
+
+Enter choice: 6    \\Exit\\
