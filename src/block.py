@@ -26,7 +26,8 @@ def mine_block(miner_address, mempool, utxo_manager, num_txs=5):
         mempool.remove_transaction(tx.tx_id)
 
     utxo_manager.add_utxo(f"coinbase_{int(time.time())}", 0, total_fee, miner_address)
-
+    print("Mined Successfully!")
     print(f"Miner {miner_address} receives {total_fee} BTC")
+    print(f"{len(selected)} transactions removed from mempool")
 
     return total_fee

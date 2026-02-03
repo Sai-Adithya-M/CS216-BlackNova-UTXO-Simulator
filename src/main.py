@@ -16,15 +16,24 @@ utxo.add_utxo("genesis", 2, 20, "Charlie")
 utxo.add_utxo("genesis", 3, 10, "David")
 utxo.add_utxo("genesis", 4, 5, "Eve")
 
-while True:
-    print("\n1 Create TX")
-    print("2 View UTXO")
-    print("3 View Mempool")
-    print("4 Mine")
-    print("5 Tests")
-    print("6 Exit")
+print( "=== Bitcoin Transaction Simulator ===")
+print("Initial UTXOs ( Genesis Block ) :")
+print("Alice :",utxo.get_balance("Alice")," BTC")
+print("Bob :",utxo.get_balance("Bob")," BTC")
+print("Charlie :",utxo.get_balance("Charlie")," BTC")
+print("David :",utxo.get_balance("David")," BTC")
+print("Eve :",utxo.get_balance("Eve")," BTC \n")
+print("\n Main menu :")
+print("\n1 Create TX")
+print("2 View UTXO")
+print("3 View Mempool")
+print("4 Mine")
+print("5 Tests")
+print("6 Exit")
 
-    c = input("Enter choice: ")
+while True:
+
+    c = input("\nEnter choice: ")
 
     if c == "1":
         sender = input("Enter Sender: ")
