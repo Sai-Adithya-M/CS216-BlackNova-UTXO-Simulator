@@ -43,7 +43,8 @@ def create_transaction(sender, receiver, amount, utxo_manager, fee=0.001):
     utxos = utxo_manager.get_utxos_for_owner(sender)
 
     if not utxos:
-        raise ValueError("Sender has no UTXOs")
+        print("No UTXOs available for sender")
+        return None
 
     inputs = []
     total = 0.0
@@ -60,7 +61,8 @@ def create_transaction(sender, receiver, amount, utxo_manager, fee=0.001):
             break
 
     if total < amount + fee:
-        raise ValueError("Insufficient funds")
+        print("Insufficient funds")
+        return None
 
     outputs = []
 
