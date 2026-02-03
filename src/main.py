@@ -43,12 +43,18 @@ while True:
         print()
         print("Creating transaction... ")
         tx = create_transaction(sender, recipient, amount, utxo)
-        valid , msg = validator.submit_transaction(tx)
-        if(valid):
-            print(msg, "Fee: 0.001 BTC")
-            print("TX ID:", tx.tx_id)
-            print("Transaction added to mempool")
-            print("Mempool size:", len(mempool.transactions),"transactions")
+        if tx:
+            valid , msg = validator.submit_transaction(tx)
+            if(valid):
+                print(msg, "Fee: 0.001 BTC")
+                print("TX ID:", tx.tx_id)
+                print("Transaction added to mempool")
+                print("Mempool size:", len(mempool.transactions),"transactions")
+            else:
+                print("Transaction failed:", msg)
+        else:
+            print("Transaction creation failed.")
+        
 
     if c == "2":
         print("UTXO SET: ")
